@@ -2,6 +2,8 @@ package alex.mojaki.s3upload;
 
 import java.io.InputStream;
 
+import software.amazon.awssdk.utils.BinaryUtils;
+
 /**
  * A simple class which holds some data which can be uploaded to S3 as part of a multipart upload and a part number
  * identifying it.
@@ -35,6 +37,10 @@ class StreamPart {
 
     public long size() {
         return stream.size();
+    }
+
+    public String getMD5Digest() {
+        return BinaryUtils.toBase64(stream.getMD5Digest());
     }
 
     @Override

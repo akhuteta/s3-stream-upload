@@ -84,13 +84,12 @@ public class ExecutorServiceResultsHandler<V> implements Iterable<V> {
         if (executorService != null) {
             executorService.shutdownNow();
         }
-        executorService = null;
-        completionService = null;
     }
 
     /**
      * Convenience method to wait for the callables to finish for when you don't care about the results.
      */
+    @SuppressWarnings({"unused"})
     public void awaitCompletion() {
         //noinspection StatementWithEmptyBody
         for (V ignored : this) {
